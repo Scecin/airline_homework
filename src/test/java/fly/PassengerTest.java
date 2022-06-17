@@ -1,6 +1,5 @@
 package fly;
 
-import fly.Passenger;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +11,7 @@ public class PassengerTest {
 
     @Before
     public void before() {
-        passenger = new Passenger("Silvia", 2);
+        passenger = new Passenger("Silvia", 2, 32);
     }
 
     @Test
@@ -35,6 +34,11 @@ public class PassengerTest {
     public void canChangeNumberOfBags() {
         passenger.setNumberOfBags(1);
         assertEquals(1, passenger.getNumberOfBags());
+    }
+
+    @Test
+    public void canCalculateBaggageWeight() {
+        assertEquals(32, passenger.getBaggageWeight(), 0.0);
     }
 
 }

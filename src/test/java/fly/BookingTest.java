@@ -15,7 +15,7 @@ public class BookingTest {
 
     @Before
     public void before() {
-        passenger = new Passenger("Silvia", 2);
+        passenger = new Passenger("Silvia", 2, 16);
         plane = new Plane(PlaneType.EMBRAER_175);
         booking = new Booking(passenger,plane);
     }

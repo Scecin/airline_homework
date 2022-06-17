@@ -3,7 +3,6 @@ package fly;
 import fly.crewMember.CabinCrewMember;
 import fly.crewMember.Pilot;
 import fly.plane.Plane;
-import fly.plane.PlaneType;
 
 import java.util.ArrayList;
 
@@ -17,6 +16,7 @@ public class Flight {
     private String destination;
     private String departureAirport;
     private String departureTime;
+    private final int maxBaggageWeight;
 
     public Flight(Pilot pilot, ArrayList<CabinCrewMember> cabinCrewMemberArrayList, ArrayList<Booking> bookings,
                   Plane plane, String flyNumber, String destination, String departureAirport, String departureTime) {
@@ -28,10 +28,15 @@ public class Flight {
         this.destination = destination;
         this.departureAirport = departureAirport;
         this.departureTime = departureTime;
+        this.maxBaggageWeight = 40;
     }
 
     public Pilot getPilot() {
         return this.pilot;
+    }
+
+    public ArrayList<Booking> getBookings() {
+        return this.bookings;
     }
 
     public int getCabinCrewMemberSize() {
@@ -71,4 +76,21 @@ public class Flight {
             this.bookings.add(booking);
         }
     }
+
+    public int getMaxBaggageWeight() {
+        return this.maxBaggageWeight;
+    }
+
+//    public int totalBaggageWeightByFlight() {
+//        int totalWeight = 0;
+//        // For Each (Variable: array)
+//        for(Booking booking : this.bookings) {
+//            totalWeight += booking.getPassenger().getTotalBaggageWeightByPassenger();
+//        }
+//        return totalWeight;
+//    }
+//
+//    public int totalBaggageWeightAvailable() {
+//        return this.plane.getCapacity() * this.maxNumberOfBaggageByPassenger * this.maxBaggageWeight;
+//    }
 }

@@ -35,8 +35,8 @@ public class FlightTest {
         cabinCrewMember2 = new CabinCrewMember("Mark", Rank.FLIGHT_ATTENDANT);
         cabinCrewMember3 = new CabinCrewMember("Sean", Rank.FLIGHT_ATTENDANT);
         cabinCrewMemberArrayList = new ArrayList<CabinCrewMember>();
-        passenger = new Passenger("Silvia", 2);
-        passenger2 = new Passenger("Raquel", 1);
+        passenger = new Passenger("Silvia", 2, 32);
+        passenger2 = new Passenger("Raquel", 1, 16);
         plane = new Plane(PlaneType.A350_900);
         plane2 = new Plane(PlaneType.EMBRAER_175);
         booking = new Booking(passenger, plane);
@@ -102,7 +102,23 @@ public class FlightTest {
         flight.bookAPassenger(booking);
         flight.bookAPassenger(booking2);
         assertEquals(2, flight.getBookingSize());
-
     }
+
+    @Test
+    public void hasMaxBaggageWeight() {
+        assertEquals(40, flight.getMaxBaggageWeight());
+    }
+
+//    @Test
+//    public void CanCheckTotalBaggageWeightByFlight() {
+//        bookingArrayList.add(booking);
+//        bookingArrayList.add(booking2);
+//        assertEquals(48, flight.totalBaggageWeightByFlight());
+//    }
+//
+//    @Test
+//    public void hasTotalBaggageWeightAvailable() {
+//        assertEquals(11200, flight.totalBaggageWeightAvailable());
+//    }
 
 }
